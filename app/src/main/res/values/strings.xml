@@ -2,4 +2,7 @@
     <string name="app_name">Submiss2BFAA</string>
     <string name="search">Search</string>
     <string name="language">Language</string>
+    <string name="search_hint">Masukkan kata</string>
+    <string name="username">Username</string>
+    <string name="url">Url</string>
 </resources>

@@ -5,9 +5,10 @@
     <group >
         <item
             android:id="@+id/search"
-            android:icon="@drawable/ic_search_24"
+            android:icon="@drawable/ic_search_black_24dp"
             android:title="@string/search"
-            app:showAsAction="always" />
+            app:actionViewClass="android.widget.SearchView"
+            app:showAsAction="always|collapseActionView" />
         <item
             android:id="@+id/language"
             android:title="@string/language" />
