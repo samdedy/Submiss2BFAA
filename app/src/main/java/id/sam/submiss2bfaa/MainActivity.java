@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onQueryTextChange(String newText) {
                     showLoading(true);
                     if (TextUtils.isEmpty(newText)) return false;
-                    setUser(newText);
+                    setSearchUser(newText);
                     return true;
                 }
             });
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setUser(final String usernames){
+    public void setSearchUser(final String usernames){
         final ArrayList<UserItems> listItems = new ArrayList<>();
 
         String apiKey = "e90d44e430119303a084ae702255a673d94decf7";
