@@ -9,4 +9,8 @@
     <string name="biografi">Biografi</string>
     <string name="company">Company</string>
     <string name="location">location</string>
+    <string name="tab_following">Following</string>
+    <string name="tab_followers">Followers</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,6 +1,7 @@
 package id.sam.submiss2bfaa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.squareup.picasso.Picasso;
@@ -18,6 +20,7 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
+import id.sam.submiss2bfaa.adapter.SectionsPagerAdapter;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class DetailActivity extends AppCompatActivity {
@@ -46,7 +49,29 @@ public class DetailActivity extends AppCompatActivity {
         imgCompany = findViewById(R.id.imgCompany);
         imgLocation = findViewById(R.id.imgLocation);
         imgUrl = findViewById(R.id.imgUrl);
+
+        try {
+            Bundle mBundle = new Bundle();
+            mBundle.putString("username", getIntent().getStringExtra("detail"));
+            FollowingFragment mFollowingFragment = new FollowingFragment();
+            mFollowingFragment.setArguments(mBundle);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.viewPager, mFollowingFragment)
+                    .commit();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         getDetailUser(getIntent().getStringExtra("detail"));
+
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
+
+        getSupportActionBar().setElevation(0);
     }
 
     private void getDetailUser(String username){
